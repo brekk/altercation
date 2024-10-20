@@ -1,5 +1,5 @@
-import * as altercation from "./altercation"
 import { test, expect } from "vitest"
+import * as altercation from "./altercation"
 
 test(`altercation exports`, () => {
   expect(Object.keys(altercation)).toEqual([

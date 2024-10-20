@@ -2,6 +2,7 @@ import stripAnsi from "strip-ansi"
 
 import { map } from "ramda"
 import Unusual from "unusual"
+import { test, expect } from "vitest"
 import pkg from "./package.json"
 import {
   shortFlag,
@@ -10,7 +11,6 @@ import {
   failIfMissingFlag,
   generateHelp,
 } from "./help"
-import { test, expect } from "vitest"
 
 const u = Unusual(pkg.name + `@` + pkg.version)
 

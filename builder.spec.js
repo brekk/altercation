@@ -1,8 +1,8 @@
 import { fork } from "fluture"
 import { parse as tomlparse } from "smol-toml"
 import { pipe, map } from "ramda"
-import { NO_OP, showHelpWhen, configurate, configFile } from "./builder"
 import { test, expect } from "vitest"
+import { NO_OP, showHelpWhen, configurate, configFile } from "./builder"
 /* eslint-disable max-len */
 
 const j2 = (z) => JSON.stringify(z, null, 2)
