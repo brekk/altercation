@@ -1,7 +1,7 @@
 const sd = (script, description = ``) =>
   description ? { script, description } : { script }
 
-const INPUT = `argued.js`
+const INPUT = `altercation.js`
 
 module.exports = {
   scripts: {
@@ -18,7 +18,7 @@ module.exports = {
     test: {
       ...sd(`vitest --run --disable-console-intercept`, `test!`),
       ci: sd(`vitest --run`, `test for CI!`),
-      watch: sd(`vitest`, `test with watch-mode!`),
+      watch: sd(`vitest --disable-console-intercept`, `test with watch-mode!`),
     },
     meta: {
       graph: `madge ${INPUT} --image graph.svg`,

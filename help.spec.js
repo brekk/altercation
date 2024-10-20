@@ -1,5 +1,4 @@
 import stripAnsi from "strip-ansi"
-import { test, expect } from "vitest"
 
 import { map } from "ramda"
 import Unusual from "unusual"
@@ -11,6 +10,7 @@ import {
   failIfMissingFlag,
   generateHelp,
 } from "./help"
+import { test, expect } from "vitest"
 
 const u = Unusual(pkg.name + `@` + pkg.version)
 

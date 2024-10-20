@@ -102,8 +102,8 @@ export const configurate = curry(
       boolean: !$yaBool
         ? $help
         : $yaBool.includes(`help`)
-        ? $yaBool
-        : $yaBool.concat(help),
+          ? $yaBool
+          : $yaBool.concat(help),
     })
     const { check = alwaysFalse } = details
     return pipe(
@@ -159,7 +159,7 @@ export const configFileWithCancel = curry(
     const defOpts = !optString ? opts : {}
     const {
       digUp: digUpOpts = {},
-      ns = `argued`,
+      ns = `altercation`,
       wrapTransformer = true,
       json = false,
       template = defaultNameTemplate,
@@ -169,16 +169,15 @@ export const configFileWithCancel = curry(
     const searchspace = template(ns)
     if (!refF) {
       log.builder(`looking in...`, searchspace)
+      const jsonify = pipe(
+        coalesce(() => ({ source: `No config found!` }))(I),
+        map(JSON.stringify),
+        map(log.builder(`...hey how?`)),
+      )
       refF = pipe(
         digUpWithCancel(cancel, digUpOpts),
         chain(readFileWithCancel(cancel)),
-        optional && json
-          ? pipe(
-              coalesce(() => ({ source: `No config found!` }))(I),
-              map(JSON.stringify),
-              map(log.builder(`...hey how?`)),
-            )
-          : I,
+        optional && json ? jsonify : I,
       )(searchspace)
     }
     const chrysalis = Array.isArray(transformer)
